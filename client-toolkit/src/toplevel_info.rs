@@ -182,6 +182,7 @@ where
             zcosmic_toplevel_handle_v1::Event::Done => {
                 let is_new = data.current_info.is_none();
                 data.current_info = Some(data.pending_info.clone());
+                data.pending_info.state.clear();
                 if is_new {
                     state.new_toplevel(conn, qh, toplevel);
                 } else {
